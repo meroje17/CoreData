@@ -17,12 +17,12 @@ open class CoreDataStack {
     // MARK: - Properties
     
     // Name of xcdatamodel
-    let modelName: String
+    public let modelName: String
     
     // Reference of core data container, to have access of core data stack
-    lazy var persistentContainer: NSPersistentContainer = {
+    public lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: self.modelName)
-        container.loadPersistentStores { (description, error) in
+        container.loadPersistentStores { (_, error) in
             if let error = error {
                 fatalError("Unable to load persistend  stores : \(error)")
             }
@@ -31,19 +31,19 @@ open class CoreDataStack {
     }()
     
     // The context, tracks changes to instances of your app’s types
-    lazy var mainContext: NSManagedObjectContext = {
+    public lazy var mainContext: NSManagedObjectContext = {
         return self.persistentContainer.viewContext
     }()
     
     // MARK: - Initializer
     
-    init(modelName: String) {
+    public init(modelName: String) {
         self.modelName = modelName
     }
     
     // MARK: - Method
     
-    func saveContext() -> Bool {
+    public func saveContext() -> Bool {
         guard mainContext.hasChanges else { return false }
         do {
             try mainContext.save()
