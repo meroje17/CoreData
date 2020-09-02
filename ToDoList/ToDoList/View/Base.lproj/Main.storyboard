@@ -58,9 +58,20 @@
                         <viewLayoutGuide key="safeArea" id="bab-Mc-LDc"/>
                     </view>
                     <navigationItem key="navigationItem" title="To do list" id="NuM-2K-6LT">
-                        <barButtonItem key="leftBarButtonItem" title="Reset" id="DzH-TS-meX"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="RdV-ax-62I"/>
+                        <barButtonItem key="leftBarButtonItem" title="Reset" id="DzH-TS-meX">
+                            <connections>
+                                <action selector="tapResetButton:" destination="oAp-4G-ap6" id="OBr-WI-acn"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="RdV-ax-62I">
+                            <connections>
+                                <action selector="tapAddButton:" destination="oAp-4G-ap6" id="5Rn-Vh-z3w"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="taskTableView" destination="uHj-nI-wtU" id="com-A9-egG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aII-YU-Oug" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
